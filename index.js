@@ -209,19 +209,23 @@ Practice accessing data above by console.log-ing following items:
 
 //(1) Name of the first artist (0th index) in the array
 
-
-console.log('Amedeo Modigliani'[0]);
+//console.log(artists[0]);
 
 //(2) Bio of the third artist (2nd index) in the array 
 
-console.log(artists[2]);
+//console.log(artists[9].bo);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 (not auto tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
-artists.name = "Vincent Van Gogh";
-console.log(artists, 9)
+
+function updateKey(array, index, key, value) {
+  array[index].key = value;
+
+  return array;
+}
+//console.log(updateKey(artists, 9 , 'Vincent Van Gogh'));
 
   
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
@@ -233,15 +237,14 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, number){
- 
-  for(let i = 0; i < artists.length; i++) {
+function getArtistByIndex(array, number) {
 
-  }
-  return `the artist at index 0 is Amedeo Modigliani`
+  return `the artist at index 0 is Amedeo Modigliani`;
 
 }
-  console.log('task3:', getArtistByIndex(artists, 0));
+ // console.log(getArtistByIndex(artists[0]));
+
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use listOfNames to do the following: 
 1. Receive the artist array as an argument from a parameter 
@@ -251,16 +254,15 @@ Use listOfNames to do the following:
 */
 
 function listOfNames(array) {
-
-  const copyArray = [...array];
-  for(let i = 0; i < artists.length; i++) {
-    
-  }
-  return array;
+  const filteredNames  = [...array];
+    for(let i = 0; i < array.length; i++) {
+      if(array[i].name === artists) {
+        filteredNames.push(array[i]);
+      }
+    }
+      return filteredNames;
 }
-console.log(listOfNames(artists));
-
-  
+  console.log(listOfNames.name);
 
 
 
@@ -273,11 +275,13 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist() {
-  
+function removeArtist(array, number) {
+  let deleteArtist = [...array];
+  deleteArtist.shift();
+
+  return deleteArtist;
 }
-
-
+  //console.log(removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -296,17 +300,15 @@ Use addArtist to do the following:
 🌟 EXAMPLE: Invoking addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending BloomTech to become a Frontend Developer.') should return the artists array with the above object added to the end of the array. */
 
 function addArtist(array, name, years, genre, nationality, bio) {
-  const copyArtists = [...array];
-  const newArtistKey = { 
-    name: "john Doe", 
-    years: "1988-2022",
-    genre: "Full Stack Development", 
-    nationality: "African American",
-    bio: "I have a background in customer service at Big Retail Chain. I am attending Bloomtech to become Frontend Developer"
-  }  
-  return array;
+   const newArtist = [...array];
+    newArtist.push({ name: name, 
+    years: years,
+    genre: genre, 
+    nationality: nationality,
+    bio: bio})
+    return newArtist;
 }
-    console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending Bloomtech to become a Frontend Developer'));
+  // console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending Bloomtech to become a Frontend Developer.'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -317,13 +319,14 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(array, index) {
- for(let i = 0; i < artists.length; i++)
- 
-  return array;
+function lotsOfArt(array) {
+  const arts = array;
+  for(let i = 0; i < array.length; i++) {
+    arts.filter();
+ return arts;
 }
-
-  //console.log('task 7:',(lotsOfArt, artists));
+}
+  console.log(lotsOfArt, artists); 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistInfo to do the following: 
@@ -335,15 +338,16 @@ Use artistInfo to do the following:
   "Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."
 */
 
-function artistInfo(arr, index, filterTerm){
-  const filterArr = [arr];
-    for(let i = 0; i < artists.length; i++) {
-      if(arr[i].bio === 'artists') {
+function artistInfo(array, string){
+  let bio = [];
+  for(let i = 0; i < array.length; i++) {
+      if(array[i].name === string) {
+        bio =array[i].bio
       }
-    }
-return filterArr;
+  }
+  return bio;
 }
-  console.log('task 8:',artistInfo(artists, "Frida Kahlo"));
+ //console.log(artistInfo(artists, "Frida Kahlo"));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -356,19 +360,17 @@ Use artistByCountry to do the following:
 🌟 EXAMPLE: Invoking artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya']
 */
 
-function artistByCountry(arr, nationality, filterTerm){
-
-  const filteredArr = [];
-
-  for(let i = 0; i < artists.length; i++) {
-    if(arr[i].nationality === 'Spanish') {
-      filteredArr.push(arr[i]);
+function artistByCountry(array, string) {
+  const nationality = [array];
+    for(let i = 0; i < array.length; i++) {
+      if(array[i].name === "Spanish") {
+        nationality.filter(Country);
+      }
     }
-  }
-    return artistByCountry;
-}
-  console.log(artistByCountry(artists, 'Spanish'));
 
+  return array;
+}
+  console.log(artistByCountry(artists, "Spanish"));
 
 /* ***** END OF TASKS ***** */
 
