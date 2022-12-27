@@ -237,12 +237,10 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, number) {
-
-  return `the artist at index 0 is Amedeo Modigliani`;
-
+function getArtistByIndex(array, index){
+return `the artist at index ${index} is ${array[index].name}`;
 }
- // console.log(getArtistByIndex(artists[0]));
+ console.log(getArtistByIndex(artists, 0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -253,16 +251,14 @@ Use listOfNames to do the following:
 🌟 EXAMPLE of return: ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"....]
 */
 
-function listOfNames(array) {
-  const filteredNames  = [...array];
-    for(let i = 0; i < array.length; i++) {
-      if(array[i].name === artists) {
-        filteredNames.push(array[i]);
-      }
+function listOfNames(array){
+  const newList = [...array];
+  for(let i = 0; i < newList.length; i++){
+      array.push(array[i].name)
     }
-      return filteredNames;
+  return array;
 }
-  console.log(listOfNames.name);
+  console.log(listOfNames(artists));
 
 
 
@@ -281,7 +277,7 @@ function removeArtist(array, number) {
 
   return deleteArtist;
 }
-  //console.log(removeArtist(artists, 0));
+  console.log(removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -319,14 +315,17 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(array) {
-  const arts = array;
-  for(let i = 0; i < array.length; i++) {
-    arts.filter();
- return arts;
+function lotsOfArt(array){
+  const bigArts = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].paintings > 100){
+      bigArts.push(array[i].name)
+    }
+  }
+  return bigArts;
 }
-}
-  console.log(lotsOfArt, artists); 
+
+  console.log(lotsOfArt(artists));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistInfo to do the following: 
@@ -361,14 +360,14 @@ Use artistByCountry to do the following:
 */
 
 function artistByCountry(array, string) {
-  const nationality = [array];
+  const spanishArray = [];
     for(let i = 0; i < array.length; i++) {
-      if(array[i].name === "Spanish") {
-        nationality.filter(Country);
+      if(array[i].nationality === string) {
+        spanishArray.push(array[i].name);
       }
     }
 
-  return array;
+  return spanishArray;
 }
   console.log(artistByCountry(artists, "Spanish"));
 
