@@ -253,7 +253,7 @@ Use listOfNames to do the following:
 
 function listOfNames(array){
   const newList = [];
-  for(let i = 0; i >  newList.length; i++){
+  for(let i = 0; i < array.length; i++){
     newList.push(array[i].name)
     
   }
