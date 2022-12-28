@@ -252,13 +252,15 @@ Use listOfNames to do the following:
 */
 
 function listOfNames(array){
-  const newList= [...array];
+  let newList = [];
   for(let i = 0; i < array.length; i++){
-      newList.push(array[i].name)
+    newList = array[i].name;
   }
+  
   return newList;
+
 }
-  console.log(listOfNames(artists));
+  console.log(listOfNames,(artists));
 
 
 
@@ -304,7 +306,7 @@ function addArtist(array, name, years, genre, nationality, bio) {
     bio: bio})
     return newArtist;
 }
-  // console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending Bloomtech to become a Frontend Developer.'));
+  console.log(addArtist(artists, 'John Doe', '1988-2022', 'Full Stack Development', 'African American', 'I have a background in customer service at Big Retail Chain. I am attending Bloomtech to become a Frontend Developer.'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
